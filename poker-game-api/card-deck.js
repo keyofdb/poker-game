@@ -14,7 +14,6 @@ export default class CardDeck {
 
     shuffle() {
         this.#cards = this.#cards.sort(() => Math.random() - 0.5);
-        return this;
     }
 
     deal(count) {
