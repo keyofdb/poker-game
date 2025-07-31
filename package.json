@@ -1,0 +1,12 @@
+{
+  "name": "poker-game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/keyofdb/poker-game",
+  "author": "keyofdb <keyofdb@yahoo.com>",
+  "license": "MIT",
+  "private": true,
+  "packages": [
+    "poker-game-api"
+  ]
+}
