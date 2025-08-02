@@ -3,14 +3,12 @@ import CardDeck from './card-deck';
 export default class PokerHand {
   #cardDeck;
   #players;
-  #dealerButton;
   #actions;
   #communityCards;
 
   constructor(players, dealerButton) {
     this.#cardDeck = new CardDeck();
     this.#players = players;
-    this.#dealerButton = dealerButton;
     this.#communityCards = [];
   }
 

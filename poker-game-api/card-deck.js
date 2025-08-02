@@ -1,23 +1,23 @@
 import { Readable } from 'stream';
+import Card from './card.js';
 import cardRanks from './card-ranks.js';
 import cardSuits from './card-suits.js';
 
 export default class CardDeck {
     #cards = [];
 
-    #generateNewDeck() {
-
-    }
-
     constructor() {
         this.#cards = Object.keys(cardSuits).reduce((cards, cardSuit) => [
             ...cards, 
-            ...Object.keys(cardRanks).map((cardRank) => ({ suit: cardSuit, rank: cardRank })),
+            ...Object.keys(cardRanks).map((cardRank) => new Card(cardSuit, cardRank)),
         ], []);
     }
 
     shuffle() {
-        this.#cards.sort(() => Math.random() - 0.5);
+        for (let i = this.#cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.#cards[i], this.#cards[j]] = [this.#cards[j], this.#cards[i]];
+        }
     }
 
     take(count) {
