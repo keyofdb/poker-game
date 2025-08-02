@@ -5,6 +5,10 @@ import cardSuits from './card-suits.js';
 export default class CardDeck {
     #cards = [];
 
+    #generateNewDeck() {
+
+    }
+
     constructor() {
         this.#cards = Object.keys(cardSuits).reduce((cards, cardSuit) => [
             ...cards, 
@@ -13,10 +17,10 @@ export default class CardDeck {
     }
 
     shuffle() {
-        this.#cards = this.#cards.sort(() => Math.random() - 0.5);
+        this.#cards.sort(() => Math.random() - 0.5);
     }
 
-    deal(count) {
+    take(count) {
         if (count <= 0) {
             throw new Error('Invalid count requested.')
         }
@@ -30,7 +34,11 @@ export default class CardDeck {
             : this.#cards.splice(0, count);
     }
 
-    get length() {
+    get cardsLeft() {
         return this.#cards.length;
+    }
+
+    toJSON() {
+        return this.#cards;
     }
 }
