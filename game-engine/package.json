@@ -1,5 +1,5 @@
 {
-  "name": "poker-game-api",
+  "name": "game-engine",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

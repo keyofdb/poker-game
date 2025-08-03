@@ -3,17 +3,18 @@ import CardDeck from './card-deck';
 export default class PokerHand {
   #cardDeck;
   #players;
-  #actions;
   #communityCards;
 
-  constructor(players, dealerButton) {
+  constructor(players) {
     this.#cardDeck = new CardDeck();
     this.#players = players;
     this.#communityCards = [];
   }
 
   dealPlayerCards() {
-
+    this.#players.forEach((player) => {
+      player.cards.push(...this.#cardDeck.deal(2));
+    });
   }
 
   dealFlop() {
@@ -27,4 +28,10 @@ export default class PokerHand {
   dealRiver() {
     this.#communityCards.push(this.#cardDeck.deal(1));
   }
+
+  start() {
+    
+  }
+
+  
 }
