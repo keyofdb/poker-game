@@ -3,25 +3,22 @@ import PokerHandStatuses from './poker-hand-statuses';
 
 export default class PokerHand {
   #cardDeck;
-  #players;
+  #participants;
   #communityCards;
+  #mainPot;
   #status;
 
-  constructor(players) {
+  constructor(participants) {
     this.#status = PokerHandStatuses.PENDING;
   
     this.#cardDeck = new CardDeck();
-    this.#players = players;
+    this.#participants = participants;
     this.#communityCards = [];
   }
 
-  promptForBlinds() {
-   this. 
-  }
-
-  dealPlayers() {
-    this.#players.forEach((player) => {
-      player.cards.push(...this.#cardDeck.deal(2));
+  dealParticipants() {
+    this.#participants.forEach((participant) => {
+      participant.cards.push(...this.#cardDeck.deal(2));
     });
   }
 
