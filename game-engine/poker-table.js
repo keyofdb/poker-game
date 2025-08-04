@@ -4,7 +4,7 @@ import seatAssignmentStatuses from './seat-assignment-statuses.js';
 export default class PokerTable {
   #seatAssignments;
   #limits;
-  #dealerPosition;
+  #dealerButtonPosition;
 
   constructor({
     seatCount = 8,
@@ -29,7 +29,13 @@ export default class PokerTable {
     this.#seatAssignments[seatNumber - 1] = null;
   }
 
-  advanceButton() {
+  advanceDealerButton() {
+    this.#dealerButtonPosition = this.#dealerButtonPosition === this.#seatAssignments.length
+      ? 1
+      : this.#dealerButtonPosition + 1;
+  }
+
+  startNewHand() {
     
   }
 };
