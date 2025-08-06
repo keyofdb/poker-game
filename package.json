@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "packages": [
-    "game-engine"
+    "game-engine",
+    "game-websocket-server"
   ]
 }
