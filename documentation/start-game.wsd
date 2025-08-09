@@ -12,6 +12,6 @@ GameAPI -> ClientApp : Return confirmation
 GameEngine -> GameStartQueue: Receive message
 GameEngine -> GameDatabase: Load game data
 GameEngine -> GameEngine: Start game
-GameEngine -> WebSocketServer: Publish notification: Game Started
+GameEngine -> WebSocketServer: Push notification: Game Started
 GameEngine -> GameStartQueue : Acknowledge message
 @enduml

@@ -9,4 +9,6 @@ GameAPI -> GameDatabase : Validate permission to join game
 GameAPI -> GameDatabase : Add player to game
 GameAPI -> WebSocketServer: Push notification: Player Joined Game
 GameAPI -> ClientApp : Return confirmation
+WebSocketServer -> WebSocketServer : Add player to\ngame room
+WebSocketServer -> WebSocketServer : Push notification\nto game room:\nPlayer Joined Game
 @enduml
