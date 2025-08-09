@@ -1,0 +1,11 @@
+@startuml
+participant "Client App" as ClientApp
+participant "Game API" as GameAPI
+participant "Game Database" as GameDatabase
+participant "WebSocket Server" as WebSocketServer
+ClientApp -> GameAPI : Create Game
+GameAPI -> GameDatabase : Validate subscription
+GameAPI -> GameDatabase : Create Game
+GameAPI -> WebSocketServer : Push notification: Game Created
+GameAPI -> ClientApp : Return Game Information
+@enduml
