@@ -2,15 +2,11 @@
 participant "Client App" as ClientApp
 participant "Game API" as GameAPI
 participant "Game Database" as GameDatabase
-participant "Game Start Queue" as AWSSQS
-participant "Game Engine" as GameEngine
 participant "WebSocket Server" as WebSocketServer
 ClientApp -> GameAPI : Join Game
+GameAPI -> GameDatabase : Load game data
 GameAPI -> GameDatabase : Validate permission to join game
-GameAPI -> AWSSQS : Send Request\nto Game Queue
-GameEngine -> AWSSQS: Receive Request
-GameEngine -> GameDatabase: Load Game Data
-GameEngine -> GameEngine: Start Game
-GameEngine -> WebSocketServer: Broadcast Game Started\nevent to Game Room
-WebSocketServer -> ClientApp : Send Event Notification:\nGame Started
+GameAPI -> GameDatabase : Add player to game
+GameAPI -> WebSocketServer: Push notification: Player Joined Game
+GameAPI -> ClientApp : Return confirmation
 @enduml

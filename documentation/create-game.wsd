@@ -7,5 +7,5 @@ ClientApp -> GameAPI : Create Game
 GameAPI -> GameDatabase : Validate subscription
 GameAPI -> GameDatabase : Create Game
 GameAPI -> WebSocketServer : Push notification: Game Created
-GameAPI -> ClientApp : Return Game Information
+GameAPI -> ClientApp : Return confirmation
 @enduml
