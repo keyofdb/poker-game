@@ -1,0 +1,8 @@
+@startuml
+participant "Game Engine" as GameEngine
+participant "WebSocket Server" as WebSocketServer
+participant "Client App" as ClientApp
+GameEngine -> GameEngine: Set timer for player response
+GameEngine -> WebSocketServer : Push notification: Player Prompt
+WebSocketServer -> ClientApp : Push notification: Player Prompt
+@enduml

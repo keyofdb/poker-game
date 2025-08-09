@@ -1,0 +1,7 @@
+@startuml
+participant "Client App" as ClientApp
+participant "WebSocket Server" as WebSocketServer
+participant "Game Engine" as GameEngine
+ClientApp -> WebSocketServer: Push notification: Player Action
+WebSocketServer -> GameEngine : Push notification: Player Action
+@enduml
